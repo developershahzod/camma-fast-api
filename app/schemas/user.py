@@ -16,13 +16,14 @@ class UserLogin(BaseModel):
     otp_code: str
 
 class UserResponse(UserBase):
-    model_config = ConfigDict(from_attributes=True)
     id: int
     is_active: bool
-    is_verified: bool
-    created_at: datetime
+    created_at: Optional[str] = None
     
-    class Config:
+    # This is the problem - you have both Config class AND model_config
+    model_config = ConfigDict(from_attributes=True)
+    
+    class Config:  # ← This needs to be removed completely
         orm_mode = True
 
 class Token(BaseModel):
