@@ -1,10 +1,10 @@
 from datetime import datetime
 from typing import Optional
-from pydantic import BaseModel, Field, EmailStr, validator
+from pydantic import BaseModel, Field, EmailStr, validator, ConfigDict
 from .enums import UserRoleEnum
 
 class UserBase(BaseModel):
-    phone_number: str = Field(..., regex=r'^\+?[1-9]\d{1,14}$')
+    phone_number: str = Field(..., pattern=r'^\+?[1-9]\d{1,14}$') 
     email: Optional[EmailStr] = None
     role: UserRoleEnum
 
@@ -16,6 +16,7 @@ class UserLogin(BaseModel):
     otp_code: str
 
 class UserResponse(UserBase):
+    model_config = ConfigDict(from_attributes=True)
     id: int
     is_active: bool
     is_verified: bool
@@ -29,7 +30,7 @@ class Token(BaseModel):
     token_type: str
 
 class OTPRequest(BaseModel):
-    phone_number: str = Field(..., regex=r'^\+?[1-9]\d{1,14}$')
+    phone_number: str = Field(..., pattern=r'^\+?[1-9]\d{1,14}$')
 
 class OTPResponse(BaseModel):
     message: str
