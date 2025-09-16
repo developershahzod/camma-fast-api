@@ -11,7 +11,7 @@ passlib[bcrypt]
 python-dotenv
 redis
 celery
-pydantic[email]==1.10.12
+pydantic<2
 httpx
 Pillow
 jinja2
