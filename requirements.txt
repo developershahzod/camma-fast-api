@@ -6,11 +6,12 @@ alembic
 psycopg2-binary
 python-multipart
 python-jose[cryptography]
+
 passlib[bcrypt]
 python-dotenv
 redis
 celery
-pydantic[email]
+pydantic[email]==1.10.12
 httpx
 Pillow
 jinja2
