@@ -22,9 +22,9 @@ class Settings(BaseSettings):
         # fallback to environment variables
         return PostgresDsn.build(
             scheme="postgresql",
-            user=os.getenv("POSTGRES_USER", "postgres"),
-            password=os.getenv("POSTGRES_PASSWORD", "password"),
-            host=os.getenv("POSTGRES_HOST", "localhost"),
+            user=os.getenv("POSTGRES_USER", "camma_db_user"),
+            password=os.getenv("POSTGRES_PASSWORD", "ikLyUadhglgN8o1CFjW6y6V9zouLMwSN"),
+            host=os.getenv("POSTGRES_HOST", "dpg-d34pf7odl3ps7383eoe0-a"),
             port=os.getenv("POSTGRES_PORT", "5432"),
             path=f"/{os.getenv('POSTGRES_DB', 'camma_db')}",
         )
