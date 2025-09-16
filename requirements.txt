@@ -6,12 +6,11 @@ alembic
 psycopg2-binary
 python-multipart
 python-jose[cryptography]
-
 passlib[bcrypt]
 python-dotenv
 redis
 celery
-pydantic[email]==1.10.12
+pydantic[email]>=2.0.0  # Remove version pin and upgrade to v2
 httpx
 Pillow
 jinja2
