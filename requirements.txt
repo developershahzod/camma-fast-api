@@ -10,7 +10,8 @@ passlib[bcrypt]
 python-dotenv
 redis
 celery
-pydantic[email]>=2.0.0  # Remove version pin and upgrade to v2
+pydantic[email]>=2.0.0
+pydantic-settings>=2.0.0  # Add this line
 httpx
 Pillow
 jinja2
